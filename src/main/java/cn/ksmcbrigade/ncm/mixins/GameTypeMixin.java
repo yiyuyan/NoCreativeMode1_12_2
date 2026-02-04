@@ -21,24 +21,14 @@ public class GameTypeMixin {
     @Inject(method = "parseGameTypeWithDefault(Ljava/lang/String;Lnet/minecraft/world/GameType;)Lnet/minecraft/world/GameType;",at = @At("RETURN"),cancellable = true)
     private static void parseGameTypeWithDefaultByName(String targetName, GameType fallback, CallbackInfoReturnable<GameType> cir){
         if(cir.getReturnValue()==GameType.CREATIVE){
-            if(fallback!=GameType.CREATIVE){
-                cir.setReturnValue(fallback);
-            }
-            else{
-                cir.setReturnValue(GameType.NOT_SET);
-            }
+            cir.setReturnValue(GameType.SPECTATOR);
         }
     }
 
     @Inject(method = "parseGameTypeWithDefault(ILnet/minecraft/world/GameType;)Lnet/minecraft/world/GameType;",at = @At("RETURN"),cancellable = true)
     private static void parseGameTypeWithDefaultById(int targetId, GameType fallback, CallbackInfoReturnable<GameType> cir){
         if(cir.getReturnValue()==GameType.CREATIVE){
-            if(fallback!=GameType.CREATIVE){
-                cir.setReturnValue(fallback);
-            }
-            else{
-                cir.setReturnValue(GameType.NOT_SET);
-            }
+            cir.setReturnValue(GameType.SPECTATOR);
         }
     }
 }

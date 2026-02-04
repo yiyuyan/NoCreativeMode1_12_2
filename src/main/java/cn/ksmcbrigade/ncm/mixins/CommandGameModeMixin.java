@@ -24,14 +24,14 @@ public class CommandGameModeMixin {
     @Inject(method = "getGameModeFromCommand",at = @At("RETURN"),cancellable = true)
     private void gameMode(ICommandSender sender, String gameModeString, CallbackInfoReturnable<GameType> cir){
         if(cir.getReturnValue().equals(GameType.CREATIVE)){
-            cir.setReturnValue(GameType.NOT_SET);
+            cir.setReturnValue(GameType.SPECTATOR);
         }
     }
 
-    @Inject(method = "getTabCompletions",at = @At(value = "RETURN"),cancellable = true)
+    /*@Inject(method = "getTabCompletions",at = @At(value = "RETURN"),cancellable = true)
     public void getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos,CallbackInfoReturnable<List<String>> cir){
         if(args.length==1){
             cir.setReturnValue(CommandBase.getListOfStringsMatchingLastWord(args,"survival", "adventure", "spectator"));
         }
-    }
+    }*/
 }

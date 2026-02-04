@@ -26,9 +26,9 @@ public class NCMMod {
         if(event.player instanceof EntityPlayerMP){
             EntityPlayerMP player = (EntityPlayerMP) event.player;
             if(player.interactionManager.getGameType() == GameType.CREATIVE) {
-                GameType type = GameType.SURVIVAL;
+                GameType type = GameType.NOT_SET;
                 if(player.getServer()!=null) type = player.server.getGameType();
-                if(type==GameType.CREATIVE) type = GameType.NOT_SET;
+                if(type==GameType.CREATIVE) type = GameType.SPECTATOR;
                 player.setGameType(type);
             }
         }

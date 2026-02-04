@@ -21,7 +21,7 @@ public abstract class GuiCreateWorldMixin {
     @Inject(method = "updateScreen",at = @At("HEAD"))
     public void update(CallbackInfo ci){
         if(gameMode.equalsIgnoreCase("creative")){
-            gameMode = "survival";
+            gameMode = "spectator";
             this.updateDisplayState();
         }
     }
